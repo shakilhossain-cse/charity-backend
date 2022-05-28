@@ -1,5 +1,6 @@
 require("dotenv").config();
-require('express-async-errors');
+require("express-async-errors");
+const cors = require("cors");
 const express = require("express");
 const connectDB = require("./config/DBconnection");
 const errorHandelerMiddleware = require("./middleware/errorHandeler");
@@ -9,6 +10,7 @@ const app = express();
 const authRoute = require("./routes/auth.routes");
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/v1/auth", authRoute);
 
