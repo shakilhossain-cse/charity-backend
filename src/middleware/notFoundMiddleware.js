@@ -1,5 +1,5 @@
 const notFoundMiddleware = (req, res) => {
-  return res.status(404).json({ massage: "Not Found" });
+  return res.status(404).json({ message: "Not Found" });
 };
 
 module.exports = notFoundMiddleware;

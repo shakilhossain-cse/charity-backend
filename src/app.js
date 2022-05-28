@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const connectDB = require("./config/DBconnection");
+const errorHandelerMiddleware = require("./middleware/errorHandeler");
 const notFoundMiddleware = require("./middleware/notFoundMiddleware");
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use("/api/v1/auth", authRoute);
 
 app.use(notFoundMiddleware);
+app.use(errorHandelerMiddleware);
 
 const port = process.env.PORT || 5000;
 const start = async () => {
